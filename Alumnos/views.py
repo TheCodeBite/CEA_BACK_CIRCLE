@@ -32,3 +32,12 @@ class AlumnosDetails(APIView):
         queryset= Alumnos.objects.get(pk=pk)
         serializer = AlumnosSerializers(queryset)
         return Response(serializer.data)
+
+    def put (self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        profile = Alumnos.objects.get(pk=pk)
+        serializer = AlumnosSerializers(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

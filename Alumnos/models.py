@@ -20,7 +20,7 @@ class Alumnos(models.Model):
     colonia = models.TextField(null=False)
     modalidad = models.CharField(max_length=30,null=False)
     telefono = models.CharField(max_length=11,null=False)
-    tutor = models.CharField(max_length=150,null=False) #Solo prepa
+    tutor = models.CharField(max_length=150) #Solo prepa
     certificado = models.IntegerField(null=False) #0 = No y 1=Si
     certificado_copias = models.IntegerField(null=False)
     acta_nacimiento = models.IntegerField(null=False)

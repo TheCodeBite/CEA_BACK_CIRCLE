@@ -1,0 +1,1 @@
+web: gunicorn cea_back.wsgi
