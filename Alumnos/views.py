@@ -35,8 +35,8 @@ class AlumnosDetails(APIView):
 
     def put (self, request, *args, **kwargs):
         pk = kwargs.get('pk')
-        profile = Alumnos.objects.get(pk=pk)
-        serializer = AlumnosSerializers(data=request.data)
+        alumno = Alumnos.objects.get(pk=pk)
+        serializer = AlumnosSerializers(alumno,data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

@@ -35,8 +35,8 @@ class MaestrosDetails(APIView):
 
     def put (self, request, *args, **kwargs):
         pk = kwargs.get('pk')
-        profile = Maestros.objects.get(pk=pk)
-        serializer = MaestrosSerializers(data=request.data)
+        maestro = Maestros.objects.get(pk=pk)
+        serializer = MaestrosSerializers(maestro,data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

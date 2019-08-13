@@ -6,7 +6,7 @@ class Maestros(models.Model):
     apellidopaterno = models.CharField(max_length=50,null=False)
     apellidomaterno = models.CharField(max_length=50,null=False)
     tituloprofesional= models.CharField(max_length=150,null=False)
-    cedulaprofesional = models.CharField(max_length=150,null=False, unique=True)
+    cedulaprofesional = models.CharField(max_length=150,null=False,unique=True)
     institucioneducativa = models.CharField(max_length=200,null=False)
     telefono = models.CharField(max_length=11,null=False)
     direccion = models.TextField(null=False)
