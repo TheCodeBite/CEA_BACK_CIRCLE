@@ -20,7 +20,7 @@ class Alumnos(models.Model):
     municipio = models.TextField(null=False)
     modalidad = models.CharField(max_length=30,null=False)
     telefono = models.CharField(max_length=11,null=False)
-    tutor = models.CharField(max_length=150) #Solo prepa
+    tutor = models.CharField(max_length=150,null=True) #Solo prepa
     certificado_original = models.IntegerField(null=False) #0 = No y 1=Si
     certificado_tres_copias = models.IntegerField(null=False)
     acta_nacimiento = models.IntegerField(null=False)

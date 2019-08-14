@@ -15,5 +15,7 @@ class Maestros(models.Model):
     fechadenacimiento = models.DateField(null=False)
     correo = models.CharField(max_length=150,null=False)
     tipo = models.CharField(max_length=150,null=False)
+    estado = models.CharField(max_length=150,null=False)
+
     class Meta:
         db_table= "Maestros"
