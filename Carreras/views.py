@@ -32,3 +32,12 @@ class CarrerasDetails(APIView):
         queryset= Carreras.objects.get(pk=pk)
         serializer = CarrerasSerializers(queryset)
         return Response(serializer.data)
+    
+    def put (self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        carrera = Carreras.objects.get(pk=pk)
+        serializer = CarrerasSerializers(carrera,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
