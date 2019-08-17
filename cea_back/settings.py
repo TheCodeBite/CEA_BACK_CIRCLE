@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'Grupos',
     'Materias',
     'PagoAlumnos',
-    'PagoMaestros'
+    'PagoMaestros',
+    'MateriasAsignadas'
 ]
 
 MIDDLEWARE = [

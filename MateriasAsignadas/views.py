@@ -26,9 +26,19 @@ class MateriasAsignadasList(APIView):
         return Response (response, status=status.HTTP_400_BAD_REQUEST)
 
 class MateriasAsignadasDetails(APIView):
-    def get(self, request,*args, **kwargs):
+    def get (self, request,*args, **kwargs):
         maestro = kwargs.get('maestro')
-        print(maestro) 
-        queryset= MateriasAsignadas.objects.filter(maestro=maestro)
-        serializer = MateriasAsignadasSerializers(queryset)
+        queryset= MateriasAsignadas.objects.all()
+        queryset= queryset.filter(maestro=maestro)
+        queryset = queryset.filter(pagado = False)
+        serializer = MateriasAsignadasSerializers(queryset,many=True)
         return Response(serializer.data)
+
+    def put (self, request, *args, **kwargs):
+        pk = kwargs.get('maestro')
+        materiasAsignada = MateriasAsignadas.objects.get(pk=pk)
+        serializer = MateriasAsignadasSerializers(materiasAsignada,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

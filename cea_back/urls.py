@@ -29,4 +29,5 @@ urlpatterns = [
     re_path(r'^api/v1/pagoMaestros/',include('PagoMaestros.urls')),
     re_path(r'^api/v1/pagoAlumnos/',include('PagoAlumnos.urls')),
     re_path(r'^api/v1/materias/',include('Materias.urls')),
+    re_path(r'^api/v1/materiasAsignadas/',include('MateriasAsignadas.urls')),
 ]
