@@ -7,5 +7,7 @@ class PagoAlumnos(models.Model):
     fecha = models.DateField(auto_now_add=True)
     pago = models.FloatField(null=False)
     tipo =  models.CharField(max_length=100,null=False)
+    costo = models.FloatField(null=False)
+    restante = models.FloatField(null=False)
     class Meta:
         db_table= "PagoAlumnos"
