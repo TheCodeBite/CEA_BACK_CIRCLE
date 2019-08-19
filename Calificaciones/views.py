@@ -29,7 +29,7 @@ class CalificacionesDetails(APIView):
     def put (self, request, *args, **kwargs):
         pk = kwargs.get('pk')
         calificacion = Calificaciones.objects.get(pk=pk)
-        serializer = CalificacionesSerializers(calificaciones,data=request.data)
+        serializer = CalificacionesSerializers(calificacion,data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
