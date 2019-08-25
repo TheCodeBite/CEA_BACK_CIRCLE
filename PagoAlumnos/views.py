@@ -32,3 +32,12 @@ class PagoAlumnosDetails(APIView):
         queryset= PagoAlumnos.objects.get(pk=pk)
         serializer = PagoAlumnosSerializers(queryset)
         return Response(serializer.data)
+
+    def put (self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        queryset = PagoAlumnos.objects.get(pk=pk)
+        serializer = PagoAlumnosSerializers(queryset,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
