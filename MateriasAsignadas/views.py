@@ -42,3 +42,12 @@ class MateriasAsignadasDetails(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class MateriasAsignadasCalificaciones(APIView):
+    def get(self, request, *args, **kwargs):
+        fecha = kwargs.get('fecha')
+        tipo = kwargs.get('tipo')
+        queryset= MateriasAsignadas.objects.filter(inicio_modulo__year=fecha)
+        queryset=queryset.filter(materia__carrera__tipo=tipo).order_by('-inicio_modulo')
+        serializer = MateriasAsignadasSerializers(queryset,many=True)
+        return Response(serializer.data)

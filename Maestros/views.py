@@ -41,3 +41,10 @@ class MaestrosDetails(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class MaestrosEstado(APIView):
+    def get(self, request,*args, **kwargs):
+        estado = kwargs.get('estado')
+        queryset= Maestros.objects.get(estado=estado)
+        serializer = MaestrosSerializers(queryset,many=True)
+        return Response(serializer.data)
