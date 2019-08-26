@@ -33,7 +33,7 @@ class PagoMaestrosDetails(APIView):
         serializer = PagoMaestrosSerializers(queryset)
         return Response(serializer.data)
 
-   def put (self, request, *args, **kwargs):
+    def put (self, request, *args, **kwargs):
         pk = kwargs.get('pk')
         queryset = PagoMaestros.objects.get(pk=pk)
         serializer = PagoMaestrosSerializers(queryset,data=request.data)

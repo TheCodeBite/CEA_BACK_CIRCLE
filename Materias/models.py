@@ -4,7 +4,9 @@ from Carreras.models import Carreras
 
 class Materias(models.Model):
     nombre = models.CharField(max_length=150,null=False, unique=True)
-    carrera = models.ForeignKey(Carreras, on_delete=models.CASCADE)
+    carrera = models.ForeignKey(Carreras, on_delete=models.CASCADE, null=True)
     semestre = models.IntegerField(null=False)
+    tipo = models.CharField(max_length=30,null=False)
+
     class Meta:
         db_table= "Materias"

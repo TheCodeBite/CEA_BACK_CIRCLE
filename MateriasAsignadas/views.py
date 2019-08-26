@@ -48,6 +48,6 @@ class MateriasAsignadasCalificaciones(APIView):
         fecha = kwargs.get('fecha')
         tipo = kwargs.get('tipo')
         queryset= MateriasAsignadas.objects.filter(inicio_modulo__year=fecha)
-        queryset=queryset.filter(materia__carrera__tipo=tipo).order_by('-inicio_modulo')
+        queryset=queryset.filter(materia__tipo=tipo).order_by('-inicio_modulo')
         serializer = MateriasAsignadasSerializers(queryset,many=True)
         return Response(serializer.data)
