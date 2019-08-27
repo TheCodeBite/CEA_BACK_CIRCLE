@@ -26,6 +26,13 @@ class CalificacionesList(APIView):
         return Response (response, status=status.HTTP_400_BAD_REQUEST)
 
 class CalificacionesDetails(APIView):
+    def get(self, request,*args, **kwargs):
+        pk = kwargs.get('pk')
+        print(pk) 
+        queryset= Calificaciones.objects.filter(materia_asignada=pk).order_by('alumno__apellidopaterno')
+        serializer = CalificacionesSerializers(queryset,many=True)
+        return Response(serializer.data)
+        
     def put (self, request, *args, **kwargs):
         pk = kwargs.get('pk')
         calificacion = Calificaciones.objects.get(pk=pk)
