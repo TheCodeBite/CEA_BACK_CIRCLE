@@ -45,6 +45,6 @@ class MaestrosDetails(APIView):
 class MaestrosEstado(APIView):
     def get(self, request,*args, **kwargs):
         estado = kwargs.get('estado')
-        queryset= Maestros.objects.get(estado=estado)
+        queryset= Maestros.objects.filter(estado=estado)
         serializer = MaestrosSerializers(queryset,many=True)
         return Response(serializer.data)
