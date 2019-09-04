@@ -28,5 +28,6 @@ class Alumnos(models.Model):
     ine_tres_copias = models.IntegerField(null=False)
     comprobante_de_domicilio = models.IntegerField(null=False)
     tipo = models.CharField(max_length=30,null=False)
+    curp_tres_copias = models.IntegerField(null=False)
     class Meta:
         db_table= "Alumnos"
