@@ -98,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cea_db',
         'USER': 'root',
-        'PASSWORD': 'david',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }

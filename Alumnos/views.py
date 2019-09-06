@@ -52,6 +52,6 @@ class AlumnosEstado(APIView):
 class AlumnosBuscador(APIView):
     def get(self, request,*args, **kwargs):
         alumno = kwargs.get('alumno')
-        queryset= Alumnos.objects.filter(matricula__icontains=alumno)
+        queryset= Alumnos.objects.filter(matricula__icontains=alumno, estado = 'activo')
         serializer = AlumnosSerializers(queryset,many=True)
         return Response(serializer.data)
