@@ -95,12 +95,12 @@ WSGI_APPLICATION = 'cea_back.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cea_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cea',
+        'USER': 'alejandro',
+        'PASSWORD': 'Alejandro30121996',
+        'HOST': 'database-1.cmsnnn1dkthd.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
