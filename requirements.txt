@@ -9,7 +9,7 @@ dask==1.0.0
 decorator==4.3.0
 defusedxml==0.5.0
 dj-database-url==0.5.0
-Django==2.1.5
+Django==2.2.13
 django-allauth==0.38.0
 psycopg2==2.8.5
 django-cors-headers==2.4.0
